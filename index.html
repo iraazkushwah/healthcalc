@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Health & Fitness Calculators | Health Calc</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- 1. Sticky Navigation Header -->
+    <header class="header-nav">
+      <div class="nav-wrapper">
+        <div class="logo-section" id="brand-logo">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </div>
+          <span class="logo-text">HealthCalc</span>
+        </div>
+        
+        <div class="nav-controls">
+          <button id="theme-toggle-btn" style="font-size: 1.25rem; cursor: pointer; transition: transform var(--trans-fast);" title="Toggle Dark/Light Mode">
+            ☀️
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="main-content">
+      
+      <!-- ====================================================================
+           VIEW A: HOME DASHBOARD & SEARCH segments
+           ==================================================================== -->
+      <section id="dashboard-view" class="animated-fade-in">
+        
+        <!-- Hero Slogan -->
+        <div class="hero-section">
+          <h1 style="background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Your Premium Health & Fitness Calculators
+          </h1>
+          <p class="hero-subtitle">
+            Scientific, highly responsive, zero-reload diagnostic tools for clinical weight management, athletic training metrics, and cardiovascular logs.
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-filter-container">
+          <div class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <input type="text" id="dashboard-search-bar" class="search-input" placeholder="Search calculators (e.g. BMI, BMR, Ovulation, Macros)...">
+        </div>
+
+        <!-- Category Filters -->
+        <div class="categories-filter">
+          <button class="category-chip active" data-category="All">🔍 All Tools</button>
+          <button class="category-chip" data-category="Weight">⚖️ Weight Management</button>
+          <button class="category-chip" data-category="Fitness">⚡ Fitness & Calories</button>
+          <button class="category-chip" data-category="Cardio">❤️ Cardio Health</button>
+          <button class="category-chip" data-category="Women">🌸 Women's Health</button>
+          <button class="category-chip" data-category="Other">🥤 Others</button>
+        </div>
+
+        <!-- Grid of 12 Calculators -->
+        <div class="calculators-grid" id="calculators-card-grid">
+          
+          <!-- Card 1: BMI -->
+          <div class="calc-card" data-id="bmi" data-category="Weight">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </div>
+            <h3 class="card-title">BMI Calculator</h3>
+            <p class="card-description">Calculate your Body Mass Index score, medical ranges, and healthy weight recommendations.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Weight</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 2: BMR -->
+          <div class="calc-card" data-id="bmr" data-category="Weight">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+            <h3 class="card-title">BMR Calculator</h3>
+            <p class="card-description">Basal Metabolic Rate: Uncover the exact calories your body burns at complete cellular rest.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Weight</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Body Fat (Navy) -->
+          <div class="calc-card" data-id="bodyfat" data-category="Weight">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 12a4 4 0 1 0 8 0 4 4 0 1 0-8 0" />
+              </svg>
+            </div>
+            <h3 class="card-title">Body Fat Navy</h3>
+            <p class="card-description">U.S. Navy Method: Scientific body fat percentage using circumference measurements.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Weight</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Daily Calorie Burn -->
+          <div class="calc-card" data-id="calorieburn" data-category="Fitness">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" y1="1" x2="6" y2="4" />
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="14" y1="1" x2="14" y2="4" />
+              </svg>
+            </div>
+            <h3 class="card-title">Daily Calorie Burn</h3>
+            <p class="card-description">Track exercise-specific energy output based on clinical Metabolic Equivalents (METs).</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Fitness</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 5: TDEE -->
+          <div class="calc-card" data-id="tdee" data-category="Fitness">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="9" y1="3" x2="9" y2="21" />
+                <line x1="15" y1="3" x2="15" y2="21" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="3" y1="15" x2="21" y2="15" />
+              </svg>
+            </div>
+            <h3 class="card-title">TDEE Calculator</h3>
+            <p class="card-description">Total Daily Energy Expenditure: Your exact daily maintenance calorie requirement.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Fitness</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Macros -->
+          <div class="calc-card" data-id="macros" data-category="Fitness">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                <path d="M22 12A10 10 0 0 0 12 2v10z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Macronutrient Split</h3>
+            <p class="card-description">Obtain custom grams of Protein, Carbs, and Fats tailored for Keto, Low Carb, or Bulk diets.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Fitness</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 7: Target Heart Rate -->
+          <div class="calc-card" data-id="heartrate" data-category="Cardio">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </div>
+            <h3 class="card-title">Target Heart Rate</h3>
+            <p class="card-description">Calculate maximum heart limits and 5 strategic athletic aerobic cardiovascular training zones.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Cardio</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 8: Blood Pressure Analyzer -->
+          <div class="calc-card" data-id="bloodpressure" data-category="Cardio">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            </div>
+            <h3 class="card-title">Blood Pressure</h3>
+            <p class="card-description">Clinical levels analysis. Categorize Systolic and Diastolic ratios against medical warning zones.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Cardio</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 9: Ovulation Calculator -->
+          <div class="calc-card" data-id="ovulation" data-category="Women">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <h3 class="card-title">Ovulation Calendar</h3>
+            <p class="card-description">Calculate your estimated peak fertility window and future menstruation start dates.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Women's Health</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 10: Pregnancy Due Date -->
+          <div class="calc-card" data-id="pregnancy" data-category="Women">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3 class="card-title">Pregnancy Tracker</h3>
+            <p class="card-description">Calculate estimated baby due dates, current trimester, and baby size progress benchmarks.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Women's Health</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 11: Water Intake -->
+          <div class="calc-card" data-id="waterintake" data-category="Other">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2s8 6.5 8 11.5A8 8 0 0 1 4 13.5C4 8.5 12 2 12 2z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Water Intake Vol</h3>
+            <p class="card-description">Find optimal daily hydration fluids required based on active sweat loss and local climate.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Others</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Card 12: Blood Alcohol (BAC) -->
+          <div class="calc-card" data-id="alcohol" data-category="Other">
+            <div class="card-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22v-8m0 0L5 7V3h14v4l-7 7z" />
+              </svg>
+            </div>
+            <h3 class="card-title">BAC Sobriety</h3>
+            <p class="card-description">Calculate BAC percentage, physical impairment, and sober countdown using Widmark formula.</p>
+            <div class="card-footer">
+              <span class="card-category-tag">Others</span>
+              <span class="card-action-arrow">→</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- No Results Slot -->
+        <div id="dashboard-no-results" style="display: none; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+          <h3>No calculators found matching your search.</h3>
+          <p style="margin-top: 0.5rem;">Try typing something else or selecting a different category above.</p>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           VIEW B: ACTIVE CALCULATOR DETAILS PAGE (TWO-COLUMN ROUTE)
+           ==================================================================== -->
+      <section id="calculator-detail-view" style="display: none;">
+        
+        <!-- Controls Header -->
+        <div class="calculator-header-block">
+          <div class="back-to-dashboard" id="back-to-dashboard-btn">
+            ← Back to Dashboard
+          </div>
+          <h2 id="active-calculator-title">Calculator Name</h2>
+        </div>
+
+        <!-- Main Workspace splits -->
+        <div class="calculator-workspace">
+          
+          <!-- Column 1: INPUT FIELDS -->
+          <div class="workspace-panel">
+            <h3 class="panel-title">
+              ⚖️ Configure Inputs
+            </h3>
+            
+            <form id="calculator-dynamic-form" onsubmit="event.preventDefault();">
+              <!-- Rendered reactive fields inject here -->
+              <div id="dynamic-form-fields"></div>
+              
+              <!-- Bottom Controls Reset / Print -->
+              <div class="action-buttons-row">
+                <button type="button" class="btn btn-secondary" id="calc-reset-btn">
+                  🔄 Clear & Reset
+                </button>
+                <button type="button" class="btn btn-primary" id="calc-download-pdf-btn">
+                  📥 Download PDF Report
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Column 2: REAL-TIME CHARTS & RECOMMENDATIONS -->
+          <div class="calculator-panel-group" style="display: flex; flex-direction: column; gap: 2rem;">
+            
+            <!-- Output Graphics Box -->
+            <div class="workspace-panel" id="results-output-panel" style="transition: border var(--trans-slow);">
+              <!-- Graphics or Gauge injects here dynamically -->
+            </div>
+
+            <!-- Medical/Fitness Advice Box -->
+            <div class="workspace-panel" id="calc-clinical-tips">
+              <!-- Tips and dynamic guidelines insert here -->
+            </div>
+            
+          </div>
+
+        </div>
+
+        <!-- Dynamic CMS educational Article segment -->
+        <article class="calculator-article-section animated-fade-in">
+          <h2 class="calculator-article-title">Scientific Guide & Clinical Context</h2>
+          <div class="calculator-article-body" id="active-calculator-guide-content">
+            <!-- Article Markdown/HTML injected from local storage -->
+          </div>
+        </article>
+
+      </section>
+
+
+
+    </main>
+
+    <!-- 3. Global Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-icon" style="width: 30px; height: 30px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 1.2rem;">HealthCalc</span>
+        </div>
+        
+        <div class="footer-links">
+          <a href="#" onclick="App.navigate('dashboard'); return false;">Home Dashboard</a>
+        </div>
+        
+        <div class="footer-copy">
+          &copy; 2026 HealthCalc Inc. Fully local computational engine. Absolute data privacy guaranteed.
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript App Bootstrapper -->
+  <script src="js/calculators.js"></script>
+  <script src="js/seo.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
