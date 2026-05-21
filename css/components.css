@@ -1,0 +1,1104 @@
+/* ==========================================================================
+   HERO & SEARCH COMPONENT
+   ========================================================================== */
+.hero-section {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.search-filter-container {
+  margin: 2.5rem auto 1.5rem;
+  max-width: 600px;
+  display: flex;
+  position: relative;
+  background: var(--bg-glass);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-md);
+  transition: border var(--trans-normal), box-shadow var(--trans-normal);
+}
+
+.search-filter-container:focus-within {
+  border-color: var(--color-fitness);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Category Filter Chips */
+.categories-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.category-chip {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-xl);
+  background: var(--bg-secondary);
+  border: var(--border-width) solid var(--border-glass);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--trans-fast);
+}
+
+.category-chip:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-glass-active);
+  transform: translateY(-2px);
+}
+
+.category-chip.active {
+  background: var(--grad-other);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.category-chip.active[data-category="Weight"] { background: var(--grad-weight); box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); }
+.category-chip.active[data-category="Fitness"] { background: var(--grad-fitness); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+.category-chip.active[data-category="Cardio"] { background: var(--grad-cardio); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3); }
+.category-chip.active[data-category="Women"] { background: var(--grad-women); box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
+
+/* ==========================================================================
+   GLASSMORPHIC CARDS & GRID LAYOUT
+   ========================================================================== */
+.calculators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1rem;
+}
+
+.calc-card {
+  position: relative;
+  background: var(--bg-glass);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: border var(--trans-normal), transform var(--trans-normal), box-shadow var(--trans-normal);
+}
+
+.calc-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--grad-other);
+  opacity: 0;
+  transition: opacity var(--trans-normal);
+}
+
+.calc-card[data-category="Weight"]::after { background: var(--grad-weight); }
+.calc-card[data-category="Fitness"]::after { background: var(--grad-fitness); }
+.calc-card[data-category="Cardio"]::after { background: var(--grad-cardio); }
+.calc-card[data-category="Women"]::after { background: var(--grad-women); }
+
+.calc-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-glass-active);
+  box-shadow: var(--shadow-md);
+}
+
+.calc-card:hover::after {
+  opacity: 1;
+}
+
+.card-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transition: all var(--trans-normal);
+}
+
+.calc-card:hover .card-icon-wrapper {
+  color: #fff;
+}
+
+.calc-card[data-category="Weight"]:hover .card-icon-wrapper { background: var(--grad-weight); }
+.calc-card[data-category="Fitness"]:hover .card-icon-wrapper { background: var(--grad-fitness); }
+.calc-card[data-category="Cardio"]:hover .card-icon-wrapper { background: var(--grad-cardio); }
+.calc-card[data-category="Women"]:hover .card-icon-wrapper { background: var(--grad-women); }
+.calc-card[data-category="Other"]:hover .card-icon-wrapper { background: var(--grad-other); }
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: var(--border-width) solid var(--border-glass);
+}
+
+.card-category-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calc-card[data-category="Weight"] .card-category-tag { color: var(--color-weight); }
+.calc-card[data-category="Fitness"] .card-category-tag { color: var(--color-fitness); }
+.calc-card[data-category="Cardio"] .card-category-tag { color: var(--color-cardio); }
+.calc-card[data-category="Women"] .card-category-tag { color: var(--color-women); }
+.calc-card[data-category="Other"] .card-category-tag { color: var(--color-other); }
+
+.card-action-arrow {
+  color: var(--text-muted);
+  transition: transform var(--trans-fast), color var(--trans-fast);
+}
+
+.calc-card:hover .card-action-arrow {
+  transform: translateX(4px);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   CALCULATOR WORKSPACE PAGE (TWO COLUMN)
+   ========================================================================== */
+.calculator-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.back-to-dashboard {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--trans-fast);
+  padding: 0.5rem 1rem;
+  background: var(--bg-secondary);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-md);
+}
+
+.back-to-dashboard:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  transform: translateX(-4px);
+}
+
+.calculator-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-workspace {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .calculator-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workspace-panel {
+  background: var(--bg-glass);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: var(--border-width) solid var(--border-glass);
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   INPUT COMPONENTS
+   ========================================================================== */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.form-value-badge {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--border-glass);
+}
+
+/* Custom Range Sliders */
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  outline: none;
+  cursor: pointer;
+  transition: background var(--trans-fast);
+}
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 4px solid var(--color-fitness);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform var(--trans-fast);
+}
+
+.slider-input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.slider-input::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 4px solid var(--color-fitness);
+  cursor: pointer;
+  transition: transform var(--trans-fast);
+}
+
+/* Segmented Buttons Control */
+.segmented-control {
+  display: flex;
+  background: var(--bg-tertiary);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 0.25rem;
+  gap: 0.25rem;
+}
+
+.segmented-btn {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: calc(var(--radius-md) - 2px);
+  cursor: pointer;
+  text-align: center;
+  color: var(--text-secondary);
+  transition: all var(--trans-fast);
+}
+
+.segmented-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.segmented-btn.active {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.light-theme .segmented-btn.active {
+  background: #fff;
+  border: var(--border-width) solid var(--border-glass);
+}
+
+/* Dropdowns and Text Inputs */
+.dropdown-select, .text-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: var(--border-width) solid var(--border-glass);
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: border var(--trans-fast);
+  cursor: pointer;
+}
+
+.dropdown-select:focus, .text-input:focus {
+  border-color: var(--text-muted);
+}
+
+.dropdown-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.form-row-multi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Action Buttons */
+.action-buttons-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--grad-other);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  border: var(--border-width) solid var(--border-glass);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-glass-active);
+}
+
+/* ==========================================================================
+   RESULTS VISUALIZERS
+   ========================================================================== */
+.results-header-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.results-large-val {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  background: var(--grad-fitness);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.results-classification {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  letter-spacing: -0.2px;
+}
+
+/* Gauge Chart Visualizer */
+.gauge-visual-container {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 1.5rem auto 2.5rem;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: auto;
+}
+
+.gauge-needle {
+  transform-origin: 150px 140px;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Circular Ring Visualizer */
+.circular-progress-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 2rem auto;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--bg-tertiary);
+  stroke-width: 12px;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: var(--color-fitness);
+  stroke-width: 12px;
+  stroke-linecap: round;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+.ring-center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Water intake cup rendering */
+.water-glass-visual {
+  width: 120px;
+  height: 180px;
+  border: 6px solid var(--text-primary);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  margin: 2.5rem auto;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.water-fill-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+  height: 0%;
+  transition: height 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-fill-layer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 40%;
+  animation: waterWave 3s infinite linear;
+}
+
+@keyframes waterWave {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* BP coordinate grid */
+.bp-coordinate-grid {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-left: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  margin: 2rem 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bp-coordinate-dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--color-cardio);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  transition: bottom 0.6s var(--trans-normal), left 0.6s var(--trans-normal);
+  box-shadow: 0 0 10px var(--color-cardio);
+}
+
+.bp-grid-label-y {
+  position: absolute;
+  left: -35px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.bp-grid-label-x {
+  position: absolute;
+  bottom: -22px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Macro breakdown bar */
+.macro-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.macro-chart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.macro-chart-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.macro-chart-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.macro-chart-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  width: 0%;
+  transition: width 0.8s ease-in-out;
+}
+
+/* Pregnancy gestational timeline */
+.pregnancy-timeline-container {
+  margin: 2.5rem 0 1.5rem;
+}
+
+.preg-timeline-bg {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  position: relative;
+}
+
+.preg-timeline-fill {
+  height: 100%;
+  background: var(--grad-women);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.8s ease-in-out;
+}
+
+.preg-timeline-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 4px solid var(--color-women);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-women);
+  transition: left 0.8s ease-in-out;
+}
+
+.preg-timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* Heart rate zone list styling */
+.heart-zones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.heart-zone-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: var(--border-width) solid var(--border-glass);
+  background: var(--bg-secondary);
+  transition: transform var(--trans-fast);
+}
+
+.heart-zone-card.active {
+  transform: scale(1.02);
+  border-color: var(--color-cardio);
+  background: rgba(225, 29, 72, 0.05);
+}
+
+.heart-zone-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.heart-zone-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.heart-zone-range {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   CMS GUIDES & EDUCATIONAL ARTICLES
+   ========================================================================== */
+.calculator-article-section {
+  margin-top: 4rem;
+  border-top: var(--border-width) solid var(--border-glass);
+  padding-top: 3rem;
+}
+
+.calculator-article-title {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-article-body {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.calculator-article-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.calculator-article-body p {
+  margin-bottom: 1.25rem;
+}
+
+.calculator-article-body ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-article-body li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   ADMIN PANEL DASHBOARD
+   ========================================================================== */
+.admin-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn var(--trans-normal) forwards;
+}
+
+.admin-grid-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-metric-card {
+  background: var(--bg-glass);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-metric-val {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: var(--grad-other);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.5rem;
+}
+
+.admin-workspace-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .admin-workspace-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-cms-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cms-textarea {
+  width: 100%;
+  height: 300px;
+  background: var(--bg-tertiary);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.cms-textarea:focus {
+  border-color: var(--text-muted);
+}
+
+/* Visual Bar Charts in Admin */
+.admin-analytics-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.analytics-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.analytics-bar-name {
+  width: 140px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.analytics-bar-track {
+  flex: 1;
+  height: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.analytics-bar-fill {
+  height: 100%;
+  background: var(--grad-other);
+  width: 0%;
+  transition: width 0.8s ease-in-out;
+  border-radius: 8px;
+}
+
+.analytics-bar-val {
+  width: 40px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON PREMIUM GLASSMORPHISM
+   ========================================================================== */
+#theme-toggle-btn {
+  background: var(--bg-tertiary);
+  border: var(--border-width) solid var(--border-glass);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: all var(--trans-fast);
+  box-shadow: var(--shadow-sm);
+}
+#theme-toggle-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-glass-active);
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   DYNAMIC HEALTH CATEGORY SYSTEM THEMES
+   ========================================================================== */
+/* Slider Thumbs */
+.theme-weight .slider-input::-webkit-slider-thumb { border-color: var(--color-weight); }
+.theme-fitness .slider-input::-webkit-slider-thumb { border-color: var(--color-fitness); }
+.theme-cardio .slider-input::-webkit-slider-thumb { border-color: var(--color-cardio); }
+.theme-women .slider-input::-webkit-slider-thumb { border-color: var(--color-women); }
+.theme-other .slider-input::-webkit-slider-thumb { border-color: var(--color-other); }
+
+.theme-weight .slider-input::-moz-range-thumb { border-color: var(--color-weight); }
+.theme-fitness .slider-input::-moz-range-thumb { border-color: var(--color-fitness); }
+.theme-cardio .slider-input::-moz-range-thumb { border-color: var(--color-cardio); }
+.theme-women .slider-input::-moz-range-thumb { border-color: var(--color-women); }
+.theme-other .slider-input::-moz-range-thumb { border-color: var(--color-other); }
+
+/* Active Slider Track Fills (using the CSS variable calculated in ui.js) */
+.theme-weight .slider-input { background: linear-gradient(to right, var(--color-weight) var(--value-percent, 50%), var(--bg-tertiary) var(--value-percent, 50%)); }
+.theme-fitness .slider-input { background: linear-gradient(to right, var(--color-fitness) var(--value-percent, 50%), var(--bg-tertiary) var(--value-percent, 50%)); }
+.theme-cardio .slider-input { background: linear-gradient(to right, var(--color-cardio) var(--value-percent, 50%), var(--bg-tertiary) var(--value-percent, 50%)); }
+.theme-women .slider-input { background: linear-gradient(to right, var(--color-women) var(--value-percent, 50%), var(--bg-tertiary) var(--value-percent, 50%)); }
+.theme-other .slider-input { background: linear-gradient(to right, var(--color-other) var(--value-percent, 50%), var(--bg-tertiary) var(--value-percent, 50%)); }
+
+/* Input Badges */
+.theme-weight .form-value-badge { border-color: var(--color-weight); color: var(--color-weight); }
+.theme-fitness .form-value-badge { border-color: var(--color-fitness); color: var(--color-fitness); }
+.theme-cardio .form-value-badge { border-color: var(--color-cardio); color: var(--color-cardio); }
+.theme-women .form-value-badge { border-color: var(--color-women); color: var(--color-women); }
+.theme-other .form-value-badge { border-color: var(--color-other); color: var(--color-other); }
+
+/* Dynamic Buttons */
+.theme-weight .btn-primary { background: var(--grad-weight); box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25); }
+.theme-fitness .btn-primary { background: var(--grad-fitness); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25); }
+.theme-cardio .btn-primary { background: var(--grad-cardio); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.25); }
+.theme-women .btn-primary { background: var(--grad-women); box-shadow: 0 4px 15px rgba(236, 72, 153, 0.25); }
+.theme-other .btn-primary { background: var(--grad-other); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25); }
+
+.theme-weight .btn-primary:hover { box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4); }
+.theme-fitness .btn-primary:hover { box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4); }
+.theme-cardio .btn-primary:hover { box-shadow: 0 6px 20px rgba(225, 29, 72, 0.4); }
+.theme-women .btn-primary:hover { box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4); }
+.theme-other .btn-primary:hover { box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
+
+/* Segmented Radio Active Controls */
+.theme-weight .segmented-btn.active { background: var(--color-weight) !important; color: #fff !important; }
+.theme-fitness .segmented-btn.active { background: var(--color-fitness) !important; color: #fff !important; }
+.theme-cardio .segmented-btn.active { background: var(--color-cardio) !important; color: #fff !important; }
+.theme-women .segmented-btn.active { background: var(--color-women) !important; color: #fff !important; }
+.theme-other .segmented-btn.active { background: var(--color-other) !important; color: #fff !important; }
+
+/* Dynamic Back Button Hover styles */
+.theme-weight .back-to-dashboard:hover { color: var(--color-weight); border-color: var(--color-weight); }
+.theme-fitness .back-to-dashboard:hover { color: var(--color-fitness); border-color: var(--color-fitness); }
+.theme-cardio .back-to-dashboard:hover { color: var(--color-cardio); border-color: var(--color-cardio); }
+.theme-women .back-to-dashboard:hover { color: var(--color-women); border-color: var(--color-women); }
+.theme-other .back-to-dashboard:hover { color: var(--color-other); border-color: var(--color-other); }
+
+/* Gradient Header Titles */
+.theme-weight #active-calculator-title { background: var(--grad-weight); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.theme-fitness #active-calculator-title { background: var(--grad-fitness); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.theme-cardio #active-calculator-title { background: var(--grad-cardio); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.theme-women #active-calculator-title { background: var(--grad-women); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.theme-other #active-calculator-title { background: var(--grad-other); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Grid Card Default Icon Coloring based on Category */
+.calc-card[data-category="Weight"] .card-icon-wrapper { color: var(--color-weight); background: rgba(6, 182, 212, 0.06); }
+.calc-card[data-category="Fitness"] .card-icon-wrapper { color: var(--color-fitness); background: rgba(249, 115, 22, 0.06); }
+.calc-card[data-category="Cardio"] .card-icon-wrapper { color: var(--color-cardio); background: rgba(225, 29, 72, 0.06); }
+.calc-card[data-category="Women"] .card-icon-wrapper { color: var(--color-women); background: rgba(236, 72, 153, 0.06); }
+.calc-card[data-category="Other"] .card-icon-wrapper { color: var(--color-other); background: rgba(59, 130, 246, 0.06); }
+
+/* ==========================================================================
+   PRINT STYLES (PDF GENERATOR REPORT OVERRIDES)
+   ========================================================================== */
+@media print {
+  :root {
+    --text-primary: #0f172a !important;
+    --text-secondary: #475569 !important;
+    --text-muted: #64748b !important;
+    --bg-primary: #ffffff !important;
+    --bg-secondary: #ffffff !important;
+    --bg-tertiary: #f1f5f9 !important;
+    --bg-glass: #ffffff !important;
+    --border-glass: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  /* Hide headers, footers, admin triggers, calculators lists */
+  .header-nav,
+  .footer,
+  .back-to-dashboard,
+  .action-buttons-row,
+  .ad-slot,
+  .categories-filter,
+  .hero-section,
+  .calculators-grid,
+  .admin-page-container,
+  .calculator-article-section {
+    display: none !important;
+  }
+
+  .main-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .calculator-workspace {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  /* Make panels read like documents */
+  .workspace-panel {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .workspace-panel:first-child {
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding-bottom: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Unhide slider value overlays, expand select boxes */
+  .slider-input {
+    display: none !important;
+  }
+
+  .form-value-badge {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 1.25rem !important;
+  }
+
+  .results-large-val {
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    color: #000000 !important;
+    font-size: 4rem !important;
+  }
+
+  .btn {
+    display: none !important;
+  }
+
+  /* Custom visual charts printed cleaner */
+  .ring-bg {
+    stroke: #e2e8f0 !important;
+  }
+  
+  .ring-fill {
+    stroke: #0284c7 !important;
+  }
+
+  .bp-coordinate-grid {
+    background: #f1f5f9 !important;
+    border-color: #475569 !important;
+  }
+
+  .bp-coordinate-dot {
+    border-color: #000000 !important;
+  }
+}
